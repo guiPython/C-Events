@@ -38,7 +38,7 @@ namespace Program
                 option = Console.ReadLine();
                 if ((option is null || option == "2") && count > 0)
                 {
-                    insert.Run(Queries.ToArray());
+                    insert.Run(Queries);
                     break;
                 }
                 else
@@ -48,6 +48,7 @@ namespace Program
                     Console.Write("Digite a Idade do Usuario: ");
                     age = Console.ReadLine();
                     Queries.Enqueue(QueryBuilder(name, age));
+                    count++;
                 }
             }
 

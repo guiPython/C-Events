@@ -28,11 +28,11 @@ namespace Events
                 InsertCompleted(this, EventArgs.Empty);
         }
 
-        public void Run(string[] queries)
+        public void Run(Queue<string> queries)
         {
-            foreach (string query in queries)
+            while (queries.Count() > 0)
             {
-                OnInsertPerformed(query);
+                OnInsertPerformed(queries.Dequeue());
             }
             OnInsertCompleted();
         }
